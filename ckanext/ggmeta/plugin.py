@@ -101,25 +101,48 @@ class GGMetadataPlugin(plugins.SingletonPlugin,
                     tk.get_converter('convert_to_extras')]
                 })
 
-        # Add custom systemOfRecord as extra field
+        # Add custom Release Date as extra field
         schema.update({
-                'systemOfRecords': [tk.get_validator('ignore_missing'),
+                'releaseDate': [tk.get_validator('ignore_missing'),
                     tk.get_converter('convert_to_extras')]
                 })
 
-        # Add custom granularity as extra field
+        # Add custom Frequency as extra field
         schema.update({
-                'granularity': [tk.get_validator('ignore_missing'),
+                'frequency': [tk.get_validator('ignore_missing'),
                     tk.get_converter('convert_to_extras')]
                 })
 
+        # Add custom Language as extra field
+        schema.update({
+                'language': [tk.get_validator('ignore_missing'),
+                    tk.get_converter('convert_to_extras')]
+                })
+
+        # Add custom Related Documents as extra field
+        schema.update({
+                'relatedDocuments': [tk.get_validator('ignore_missing'),
+                    tk.get_converter('convert_to_extras')]
+                })
+
+        # Add custom Size as extra field
+        schema.update({
+                'size': [tk.get_validator('ignore_missing'),
+                    tk.get_converter('convert_to_extras')]
+                })
+
+        # Add custom RSS Feed as extra field
+        schema.update({
+                'rssFeed': [tk.get_validator('ignore_missing'),
+                    tk.get_converter('convert_to_extras')]
+                })
 
         # Add our custom_text metadata field to the schema, this one will use               
         # convert_to_extras instead of convert_to_tags.
-        schema.update({
-                'dataDictionary': [tk.get_validator('ignore_missing'),
-                    tk.get_converter('convert_to_extras')]
-                })
+        #schema.update({
+        #        'rssFeed': [tk.get_validator('ignore_missing'),
+        #            tk.get_converter('convert_to_extras')]
+        #        })
         return schema
 
     def create_package_schema(self):
@@ -152,24 +175,42 @@ class GGMetadataPlugin(plugins.SingletonPlugin,
         #        tk.get_validator('ignore_missing')]
         #    })
 
-        # Add our dataDictionary field to the dataset schema.
+        # Add our releaseDate field to the dataset schema.
         schema.update({
-            'dataDictionary': [tk.get_converter('convert_from_extras'),
+            'releaseDate': [tk.get_converter('convert_from_extras'),
                 tk.get_validator('ignore_missing')]
             })
 
-               # Add our systemOfRecords field to the dataset schema.
+        # Add our frequency field to the dataset schema.
         schema.update({
-            'systemOfRecords': [tk.get_converter('convert_from_extras'),
+            'frequency': [tk.get_converter('convert_from_extras'),
                 tk.get_validator('ignore_missing')]
             })
 
-        # Add our granularity field to the dataset schema.
+        # Add our language field to the dataset schema.
         schema.update({
-            'granularity': [tk.get_converter('convert_from_extras'),
+            'language': [tk.get_converter('convert_from_extras'),
                 tk.get_validator('ignore_missing')]
             })
 
+        # Add our relatedDocuments field to the dataset schema.
+        schema.update({
+            'relatedDocuments': [tk.get_converter('convert_from_extras'),
+                tk.get_validator('ignore_missing')]
+            })
+
+        # Add our size field to the dataset schema.
+        schema.update({
+            'size': [tk.get_converter('convert_from_extras'),
+                tk.get_validator('ignore_missing')]
+            })
+
+        # Add our rssFeed field to the dataset schema.
+        schema.update({
+            'rssFeed': [tk.get_converter('convert_from_extras'),
+                tk.get_validator('ignore_missing')]
+            })
+            
         return schema
 
 

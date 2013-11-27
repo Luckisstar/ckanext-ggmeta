@@ -9,13 +9,21 @@ won't work. #}
 
 {% block package_metadata_fields %}
 
-  {{ form.input('dataDictionary', label=_('Data Dictionary'), id='field-dataDictionary', placeholder=_('URL of Data Dictionary'), value=data.dataDictionary, error=errors.dataDictionary, classes=['contro
+  {{ form.input('releaseDate', label=_('Release Date'), id='field-releaseDate', placeholder=_('Release Date'), value=data.releaseDate, error=errors.releaseDate, classes=['contro
 l-medium']) }}
 
-  {{ form.input('systemOfRecords', label=_('System of Records'), id='field-systemOfRecords', placeholder=_('URL to systemOfRecords'), value=data.systemOfRecords, error=errors.systemOfRecords, classes=['
+  {{ form.input('frequency', label=_('Frequency'), id='field-frequency', placeholder=_('Frequency'), value=data.frequency, error=errors.frequency, classes=['
 control-medium']) }}
 
-  {{ form.input('granularity', label=_('Granularity'), id='field-granularity', placeholder=_('level of granularity'), value=data.granularity, error=errors.granularity, classes=['control-medium']) }}
+  {{ form.input('language', label=_('Language'), id='field-language', placeholder=_('Language'), value=data.language, error=errors.language, classes=['control-medium']) }}
+
+  {{ form.input('relatedDocuments', label=_('Related Documents'), id='field-relatedDocuments', placeholder=_('Related Documents'), value=data.relatedDocuments, error=errors.releaseDate, classes=['contro
+l-medium']) }}
+
+  {{ form.input('size', label=_('Size'), id='field-size', placeholder=_('Size'), value=data.size, error=errors.size, classes=['
+control-medium']) }}
+
+  {{ form.input('rssFeed', label=_('RSS Feed'), id='field-rssFeed', placeholder=_('RSS Feed'), value=data.rssFeed, error=errors.rssFeed, classes=['control-medium']) }}
 
   {{ super() }}
 
